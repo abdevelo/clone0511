@@ -1,5 +1,6 @@
 package com.kbstar.service;
 
+import com.kbstar.dto.Reserve;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -23,4 +24,5 @@ public interface ShopService<K,V> {
 
     @Transactional( readOnly = true )
     public List<V> get() throws Exception;
+
 }

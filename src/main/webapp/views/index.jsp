@@ -50,7 +50,7 @@
         <div class="offcanvas__links">
             <a href="/login">Log in</a>
             <a href="/signin">Sign in</a>
-            <a href="#">FAQs</a>
+            <a href="/faq">FAQs</a>
             <a href="#">${loginmember.name}님</a>
         </div>
     </div>
@@ -92,7 +92,7 @@
                                     <a href="#" id="logout">로그아웃</a>
                                 </c:otherwise>
                             </c:choose>
-                            <a href="#">FAQs</a>
+                            <a href="/faq">FAQs</a>
                         </div>
                     </div>
                 </div>
@@ -129,7 +129,7 @@
             <div class="col-lg-3 col-md-3">
                 <div class="header__nav__option">
                     <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
-                    <a href="#"><img src="img/icon/heart.png" alt=""></a>
+                    <a href="/reserve/${loginmember.id}"><img src="img/icon/heart.png" alt=""></a>
                     <a href="/cart/${loginmember.id}"><img src="img/icon/cart.png" alt="">
                     </a>
                 </div>

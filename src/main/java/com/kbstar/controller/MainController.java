@@ -67,6 +67,12 @@ public class MainController {
         return "index";
     }
 
+    @RequestMapping("/reserve")
+    public String reserve(Model model) {
+        model.addAttribute("center","shopping-reserve");
+        return "index";
+    }
+
     @RequestMapping("/about")
     public String about(Model model) {
         model.addAttribute("center","about");
@@ -123,4 +129,9 @@ public class MainController {
         return "index";
     }
 
+    @RequestMapping("/chatbot")
+    public String chatbot(Model model) {
+        model.addAttribute("center", "chatbot");
+        return "index";
+    }
 }

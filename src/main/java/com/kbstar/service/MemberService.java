@@ -1,6 +1,7 @@
 package com.kbstar.service;
 
 import com.kbstar.dto.Member;
+import com.kbstar.dto.Reserve;
 import com.kbstar.mapper.MemberMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,4 +40,5 @@ public class MemberService implements ShopService<String, Member>{
     public List<Member> get() throws Exception {
         return mapper.selectall();
     }
+
 }
