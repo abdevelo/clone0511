@@ -7,7 +7,7 @@
     <!-- Map Begin -->
     <style>
         #map03 > #map {
-            width : 700px;
+            width : 1120px;
             height : 400px;
             border : 2px solid greenyellow;
         }
@@ -209,7 +209,7 @@
         <div class="container">
 
             <div class="row">
-                <div class="col-lg-6 col-md-6">
+                <div class="col-lg-12 col-md-12">
                     <div class="container" id="map03">
                         <div class="section-title">
                             <span>Location</span>
