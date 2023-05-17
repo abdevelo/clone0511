@@ -6,6 +6,7 @@
     let kakaoPay = {
         init : function () {
             $('#kakaoBtn').on('click', function () {
+                alert("클릭");
                 let total = ${total};
                 let qnt = ${qnt};
                 $.ajax({
@@ -68,9 +69,11 @@
                                         <td class="cart__close"><fmt:formatNumber value="${order.price}" pattern="#,###,###원" /></td>
                                         <td class="cart__close"><fmt:formatNumber value="${order.cnt}" pattern="#,###,###개" /></td>
                                         <td class="cart__close">${order.rdate}</td>
-                                        <td><form method="post" action="/kakaoPay?price=${order.price}&cnt=${order.cnt}">
-                                            <button type="button" class="btn btn-warning" id="kakaoBtn">카카오페이로 결제하기</button>
-                                        </form></td>
+                                        <td>
+                                            <form method="post" action="/kakaoPay?price=${order.price}&cnt=${order.cnt}">
+                                            <button type="submit" class="btn btn-warning" id="kakaoBtn">카카오페이로 결제하기</button>
+                                            </form>
+                                        </td>
                                     </tr>
                             </tbody>
                             </c:forEach>
