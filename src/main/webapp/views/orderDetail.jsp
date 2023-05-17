@@ -69,7 +69,7 @@
                                         <td class="cart__close"><fmt:formatNumber value="${order.cnt}" pattern="#,###,###개" /></td>
                                         <td class="cart__close">${order.rdate}</td>
                                         <td><form method="post" action="/kakaoPay?price=${order.price}&cnt=${order.cnt}">
-                                            <button type="button" class="btn btn-warning">카카오페이로 결제하기</button>
+                                            <button type="button" class="btn btn-warning" id="kakaoBtn">카카오페이로 결제하기</button>
                                         </form></td>
                                     </tr>
                             </tbody>
