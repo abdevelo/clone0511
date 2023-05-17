@@ -144,9 +144,9 @@
                 <div class="col-lg-4">
                     <div class="cart__discount">
                         <h6>Discount codes</h6>
-                        <form action="#">
-                            <input type="text" placeholder="Coupon code">
-                            <button type="submit">Apply</button>
+                        <form id="disForm">
+                            <input type="text" placeholder="Coupon code" name="code" id="code"/>
+                            <button type="button" id="disBtn">Apply</button>
                         </form>
                     </div>
                     <div class="cart__total">

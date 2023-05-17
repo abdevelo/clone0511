@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
     <!-- Shop Details Section Begin -->
     <section class="shop-details">
         <div class="product__details__pic">
@@ -51,10 +51,10 @@
                                     <img src="/uimg/${item.img}" alt="">
                                 </div>
                             </div>
-<%--                            <div class="tab-pane" id="tabs-2" role="tabpanel">--%>
-<%--                                <div class="product__details__pic__item">--%>
-<%--                                    <img src="${item.img}" alt="">--%>
-<%--                                </div>--%>
+                            <div class="tab-pane" id="tabs-2" role="tabpanel">
+                                <div class="product__details__pic__item">
+                                    <img src="/uimg/${item.img}" alt="">
+                                </div>
 <%--                            </div>--%>
 <%--                            <div class="tab-pane" id="tabs-3" role="tabpanel">--%>
 <%--                                <div class="product__details__pic__item">--%>
@@ -76,7 +76,8 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="product__details__text">
-                            <h4>${item.name}</h4>
+                            <form>
+                            <h4 class="mt-5">${item.name}</h4>
                             <div class="rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -85,22 +86,22 @@
                                 <i class="fa fa-star-o"></i>
                                 <span> - 5 Reviews</span>
                             </div>
-                            <h3>$${item.price} <span>70.00</span></h3>
+                            <h3><fmt:formatNumber value="${item.price}" pattern="#,###,###원" /> <span><fmt:formatNumber value="100000" pattern="#,###,###원" /></span></h3>
                             <p>${item.content}</p>
                             <div class="product__details__option">
                                 <div class="product__details__option__size">
                                     <span>Size:</span>
                                     <label for="xxl">xxl
-                                        <input type="radio" id="xxl" >
+                                        <input type="radio" id="xxl" name="color">
                                     </label>
                                     <label for="xl">xl
-                                        <input type="radio" id="xl">
+                                        <input type="radio" id="xl" name="color">
                                     </label>
                                     <label for="l">l
-                                        <input type="radio" id="l">
+                                        <input type="radio" id="l" name="color">
                                     </label>
                                     <label for="sm">s
-                                        <input type="radio" id="sm">
+                                        <input type="radio" id="sm" name="color">
                                     </label>
                                 </div>
                                 <div class="product__details__option__color">
@@ -125,11 +126,12 @@
                             <div class="product__details__cart__option">
                                 <div class="quantity">
                                     <div class="pro-qty">
-                                        <input type="text" value="1">
+                                        <input type="text" value="1" id="cartCnt">
                                     </div>
                                 </div>
-                                <a href="#" class="primary-btn">add to cart</a>
+                                <a class="primary-btn btn" role="button" id="cartAdd" style="color: whitesmoke" aria-disabled="true">add to cart</a>
                             </div>
+                            </form>
                             <div class="product__details__btns__option">
                                 <a href="#"><i class="fa fa-heart"></i> add to wishlist</a>
                                 <a href="#"><i class="fa fa-exchange"></i> Add To Compare</a>

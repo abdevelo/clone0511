@@ -9,7 +9,8 @@
     <meta name="keywords" content="Male_Fashion, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Male-Fashion | Template</title>
+    <title>Male-Fashion 쇼핑몰</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
     <!-- Google Font -->
@@ -62,7 +63,7 @@
     </div>
     <div id="mobile-menu-wrap"></div>
     <div class="offcanvas__text">
-        <p>Free shipping, 30-day return or refund guarantee.</p>
+        <p>구입 후 30일까지 환불가능</p>
     </div>
 </div>
 <!-- Offcanvas Menu End -->
@@ -74,7 +75,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-7">
                     <div class="header__top__left">
-                        <p>Free shipping, 30-day return or refund guarantee.</p>
+                        <p>구입 후 30일까지 환불가능</p>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-5">
@@ -115,9 +116,11 @@
                             <ul class="dropdown">
                                 <li><a href="/about">회사 정보</a></li>
                                 <li><a href="/shop">쇼핑</a></li>
-                                <li><a href="/cart/${loginmember.id}">장바구니</a></li>
-                                <li><a href="/order/${loginmember.id}">주문</a></li>
-                                <li><a href="/order/confirm/${loginmember.id}">주문내역</a></li>
+                                <c:if test="${loginmember != null}">
+                                    <li><a href="/cart/${loginmember.id}">장바구니</a></li>
+                                    <li><a href="/order/${loginmember.id}">주문</a></li>
+                                    <li><a href="/order/confirm/${loginmember.id}">주문내역</a></li>
+                                </c:if>
                                 <li><a href="/blog">블로그</a></li>
                             </ul>
                         </li>
@@ -128,9 +131,28 @@
             </div>
             <div class="col-lg-3 col-md-3">
                 <div class="header__nav__option">
-                    <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
-                    <a href="/reserve/${loginmember.id}"><img src="img/icon/heart.png" alt=""></a>
-                    <a href="/cart/${loginmember.id}"><img src="img/icon/cart.png" alt="">
+                    <a href="#" class="search-switch"><img src="/img/icon/search.png" alt=""></a>
+                    <a href="/reserve/${loginmember.id}">
+                        <c:choose>
+                            <c:when test="${myreserve == 0 || myreserve == null}">
+                                <img src="/img/icon/heart.png" alt="">
+                            </c:when>
+                            <c:when test="${myreserve == 1}">
+                                <i class="fa-solid fa-heart" style="color:blueviolet"></i>
+                            </c:when>
+                        </c:choose>
+
+
+                    </a>
+                    <a href="/cart/${loginmember.id}">
+                        <c:choose>
+                            <c:when test="${mycart == 0 || mycart == null}">
+                                <img src="/img/icon/cart.png" alt="">
+                            </c:when>
+                            <c:when test="${mycart == 1}">
+                                <i class="fa-solid fa-cart-shopping" style="color:deeppink"></i>
+                            </c:when>
+                        </c:choose>
                     </a>
                 </div>
             </div>

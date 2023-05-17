@@ -32,13 +32,15 @@ public class CustomExceptionHandler {
     public String handleContentException(ContentException e, Model model) {
         log.info("=================== error =====================", e);
         model.addAttribute("error", e.getMessage());
-        return "exception";
+        model.addAttribute("center", "404");
+        return "index";
     }
 
     @ExceptionHandler({ChatException.class})
     public String handleChatException(ChatException e, Model model) {
         log.info("=================== error =====================", e);
         model.addAttribute("error", e.getMessage());
-        return "exception";
+        model.addAttribute("center", "404");
+        return "index";
     }
 }

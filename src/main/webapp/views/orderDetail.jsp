@@ -56,7 +56,7 @@
                                     <th>주문 총 금액</th>
                                     <th>주문 총 개수</th>
                                     <th>주문날짜</th>
-                                    <th>결제하기</th>
+                                    <th>결제</th>
                                 </tr>
                             </thead>
                             <c:forEach var="order" items="${orders}">
@@ -68,10 +68,10 @@
                                         <td class="cart__close">${order.tel}</td>
                                         <td class="cart__close"><fmt:formatNumber value="${order.price}" pattern="#,###,###원" /></td>
                                         <td class="cart__close"><fmt:formatNumber value="${order.cnt}" pattern="#,###,###개" /></td>
-                                        <td class="cart__close">${order.rdate}</td>
+                                        <td class="cart__close"><fmt:formatDate value="${order.rdate}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
                                         <td>
                                             <form method="post" action="/kakaoPay?price=${order.price}&cnt=${order.cnt}">
-                                            <button type="submit" class="btn btn-warning" id="kakaoBtn">카카오페이로 결제하기</button>
+                                            <button type="submit" class="btn btn-warning" id="kakaoBtn"><i class="fa-solid fa-comment" style="color: black"></i></button>
                                             </form>
                                         </td>
                                     </tr>

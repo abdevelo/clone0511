@@ -37,6 +37,7 @@ public class OrderController {
         order.setMemberId(user.getId());
         orderService.insert(order);
         cartService.deleteCart(user.getId());
+        session.setAttribute("mycart", 0);
         return "redirect:/order/confirm/" + user.getId();
     }
     @GetMapping("/confirm/{memberId}")

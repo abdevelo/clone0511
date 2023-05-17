@@ -1,8 +1,10 @@
 package com.kbstar.controller;
 
+import com.kbstar.dto.Item;
 import com.kbstar.dto.Member;
 import com.kbstar.exception.ErrorCode;
 import com.kbstar.exception.UserException;
+import com.kbstar.service.CartService;
 import com.kbstar.service.MemberService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @Slf4j
@@ -21,6 +24,10 @@ public class MemberController {
 
     @Autowired
     MemberService memberService;
+
+    @Autowired
+    CartService cartService;
+
 
     @Autowired
     private BCryptPasswordEncoder encoder;
@@ -58,6 +65,10 @@ public class MemberController {
         Member member = null;
         try {
             member = memberService.get(memberId);
+            List<Item> items = cartService.myCart(member.getId());
+            if (!items.isEmpty()) {
+                session.setAttribute("mycart", 1);
+            }
             log.info("==============user==============" + member.toString());
             if (member != null && encoder.matches(password, member.getPassword())) {
                 nextPage = "loginok";

@@ -4,7 +4,6 @@ package com.kbstar.service;
 import com.kbstar.dto.Item;
 import com.kbstar.dto.Reserve;
 import com.kbstar.mapper.ReserveMapper;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

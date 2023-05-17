@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Slf4j
@@ -18,7 +19,10 @@ public class MainController {
     ReviewService reviewService;
 
     @RequestMapping("/")
-    public String main(Model model) {
+    public String main(Model model, HttpSession session) {
+        if ((session.getAttribute("mycart") == null)) {
+            session.setAttribute("mycart", 0);
+        }
         return "index";
     }
 
