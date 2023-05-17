@@ -9,10 +9,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -22,9 +19,9 @@ import java.util.List;
 @Slf4j
 @RequestMapping("/order")
 public class OrderController {
+
     private final OrderService orderService;
     private final CartService cartService;
-
 
     @GetMapping("/{userId}")
     public String order(@PathVariable int userId, Model model) {
@@ -40,7 +37,7 @@ public class OrderController {
         order.setMemberId(user.getId());
         orderService.insert(order);
         cartService.deleteCart(user.getId());
-        return "redirect:/order/confirm" + user.getMemberId();
+        return "redirect:/order/confirm/" + user.getId();
     }
     @GetMapping("/confirm/{memberId}")
     public String confirmOrder(Model model, @PathVariable int memberId) {
@@ -49,4 +46,6 @@ public class OrderController {
         model.addAttribute("center", "orderDetail");
         return "index";
     }
+
+
 }

@@ -80,6 +80,7 @@
                                 <input type="hidden" name="price" value="${total}">
                                 <input type="hidden" name="cnt" value="${qnt}">
                                 <button type="submit" class="site-btn">PLACE ORDER</button>
+
                             </div>
                         </div>
                     </div>

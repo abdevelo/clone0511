@@ -245,14 +245,6 @@
 
                                     <h6>${c.name}</h6>
                                     <a id="add-cart" class="add-cart btn" role="button" aria-pressed="true" style="color:red;" data-item-id="${c.id}">+ Add To Cart</a>
-
-                                        <%--                                    본 코드 starts--%>
-<%--                                     <div class="rating" id="rate" class="rate">--%>
-<%--                                        <i class="fa fa-star"></i>--%>
-<%--                                        <i class="fa fa-star-o"></i>--%>
-<%--                                    </div>--%>
-                                        <%--                                    본 코드 ends--%>
-
                                     <c:forEach items="${rlist}" var="r">
                                         <c:if test="${r.itemId == c.id}">
                                         <div class="rating" id="rate" class="rate">
