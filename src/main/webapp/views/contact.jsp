@@ -162,41 +162,41 @@
         <div class="row">
             <div class="col-lg-3">
                 <div class="categories__text">
-                    <h2>Clothings Hot <br /> <span>Shoe Collection</span> <br /> Accessories</h2>
+                    <h2>Top 100 <br /> <span>신발 컬렉션</span> <br /> 악세사리</h2>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="categories__hot__deal">
                     <img src="/img/product-sale.png" alt="">
                     <div class="hot__deal__sticker">
-                        <span>Sale Of</span>
+                        <span>오늘의 핫딜!</span>
                         <h5>$29.99</h5>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 offset-lg-1">
                 <div class="categories__deal__countdown">
-                    <span>Deal Of The Week</span>
-                    <h2>Multi-pocket Chest Bag Black</h2>
+                    <span>금주의 핫딜!</span>
+                    <h2>멀티포켓 가방(브라운)</h2>
                     <div class="categories__deal__countdown__timer" id="countdown">
                         <div class="cd-item">
                             <span>3</span>
-                            <p>Days</p>
+                            <p>일</p>
                         </div>
                         <div class="cd-item">
                             <span>1</span>
-                            <p>Hours</p>
+                            <p>시간</p>
                         </div>
                         <div class="cd-item">
                             <span>50</span>
-                            <p>Minutes</p>
+                            <p>분</p>
                         </div>
                         <div class="cd-item">
                             <span>18</span>
-                            <p>Seconds</p>
+                            <p>초</p>
                         </div>
                     </div>
-                    <a href="#" class="primary-btn">Shop now</a>
+                    <a href="#" class="primary-btn">지금 바로 사기!</a>
                 </div>
             </div>
         </div>
@@ -230,14 +230,13 @@
                     <div class="contact__text">
                         <div class="section-title">
                             <span>Information</span>
-                            <h2>Contact Us</h2>
-                            <p>As you might expect of a company that began as a high-end interiors contractor, we pay
-                                strict attention.</p>
+                            <h2>연락처</h2>
+                            <p>고급스러운 디자인과 좋은 품질로, 저희는 세심한 주의를 기울입니다.</p>
                         </div>
                         <ul>
                             <li>
-                                <h4>Republic of Korea</h4>
-                                <p>111, Achasan-ro, Seongdong-gu, Seoul <br />+82 982-314-0958</p>
+                                <h4>대한민국</h4>
+                                <p>서울 성동구 아차산로 111 <br/>+82 982-314-0958</p>
                             </li>
 
                         </ul>
@@ -255,7 +254,7 @@
                                 </div>
                                 <div class="col-lg-12">
                                     <textarea placeholder="Message" name="msg"></textarea>
-                                    <button type="submit" class="site-btn">Send Message</button>
+                                    <button type="submit" class="site-btn">메시지 보내기</button>
                                 </div>
                             </div>
                         </form>
