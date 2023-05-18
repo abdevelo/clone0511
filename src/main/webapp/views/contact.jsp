@@ -247,13 +247,13 @@
                         <form action="/sendEmail" method="post">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <input type="text" placeholder="Name" name="name">
+                                    <input type="text" placeholder="제목 또는 닉네임" name="name" style="color: black">
                                 </div>
                                 <div class="col-lg-6">
-                                    <input type="text" placeholder="Email" value="byundavid@naver.com" disabled>
+                                    <input type="text" placeholder="이메일" value="고객센터" disabled style="color: black">
                                 </div>
                                 <div class="col-lg-12">
-                                    <textarea placeholder="Message" name="msg"></textarea>
+                                    <textarea placeholder="Message" name="msg" style="color: black"></textarea>
                                     <button type="submit" class="site-btn">메시지 보내기</button>
                                 </div>
                             </div>

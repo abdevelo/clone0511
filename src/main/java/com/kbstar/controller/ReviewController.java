@@ -36,7 +36,7 @@ public class ReviewController {
             throw new Exception("가입 오류");
         }
         model.addAttribute("rreview", review);
-        return "redirect:/";
+        return "redirect:/shop";
     }
 
     @RequestMapping("/reviewsearch")
