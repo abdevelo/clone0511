@@ -89,7 +89,7 @@
                                 <c:otherwise>
                                     <a href="/chatbot">챗봇문의</a>
                                     <a href="/review">리뷰</a>
-                                    <a href="/review/write">자주하는 질문</a>
+                                    <a href="/faq">자주하는 질문</a>
                                     <a href="#" id="logout">로그아웃</a>
                                 </c:otherwise>
                             </c:choose>
