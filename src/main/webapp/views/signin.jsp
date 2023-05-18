@@ -1,4 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<script>
+    let check_pwd = {
+        init:function (){
+            $('#signin_btn').addClass('disabled');
+
+            $('#valid_password').on('input',function (){
+                let password = $('#password').val();
+                let valid_password = $('#valid_password').val();
+
+                if( valid_password.length >= 5 ) {
+                    if ( password !== valid_password ) {
+                        $('#alert').show();
+                    }else {
+                        $('#alert').hide();
+                    }
+                }
+            });
+        }
+    }
+    $(function (){
+        check_pwd.init();
+    })
+</script>
+
 <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-option">
         <div class="container">
@@ -31,15 +55,24 @@
                                 <div class="col-lg-10">
                                     <div class="checkout__input" >
                                         <p>ID<span>*</span></p>
-                                        <input type="text" id="memberId" name="memberId">
+                                        <input type="text" id="memberId" name="memberId" placeholder="Enter Email Id">
                                     </div>
                                     <div class="checkout__input" >
                                         <p>Name<span>*</span></p>
-                                        <input type="text" id="name" name="name">
+                                        <input type="text" id="name" name="name" placeholder="Enter Name">
                                     </div>
                                     <div class="checkout__input" >
                                         <p>Password<span>*</span></p>
-                                        <input type="password" id="password" name="password">
+                                        <input type="password" id="password" name="password" placeholder="Enter password ( over 5 letters )">
+                                    </div>
+                                    <div class="checkout__input" >
+                                        <p>Password Check<span>*</span></p>
+                                        <input type="password" id="valid_password" placeholder="Enter password ( checking... )">
+                                    </div>
+                                    <div class="checkout__input">
+                                            <div class="alert alert-danger" id="alert" style="display: none">
+                                                <strong>Wrong!</strong> Please check your password again!
+                                            </div>
                                     </div>
                                 </div>
                             </div>

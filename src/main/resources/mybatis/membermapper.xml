@@ -10,6 +10,9 @@
         INSERT INTO member
         VALUES (member_seq.NEXTVAL,#{memberId},#{name},#{password},SYSDATE,1)
     </insert>
+    <update id="update" parameterType="member">
+        UPDATE member SET name=#{name},password=#{password} WHERE member_id=#{memberId}
+    </update>
 
     <select id="select" parameterType="String" resultType="member">
         SELECT * FROM member WHERE member_id=#{memberId}

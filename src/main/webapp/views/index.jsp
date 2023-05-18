@@ -131,7 +131,7 @@
             </div>
             <div class="col-lg-3 col-md-3">
                 <div class="header__nav__option">
-                    <a href="#" class="search-switch"><img src="/img/icon/search.png" alt=""></a>
+                    <a href="/memberdetail" class="search-switch"><i class="fa-solid fa-edit" style="color:black"></i></a>
                     <a href="/reserve/${loginmember.id}">
                         <c:choose>
                             <c:when test="${myreserve == 0 || myreserve == null}">
@@ -141,8 +141,6 @@
                                 <i class="fa-solid fa-heart" style="color:blueviolet"></i>
                             </c:when>
                         </c:choose>
-
-
                     </a>
                     <a href="/cart/${loginmember.id}">
                         <c:choose>
