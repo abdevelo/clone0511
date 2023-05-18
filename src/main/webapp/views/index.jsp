@@ -132,7 +132,7 @@
                                 <li><a href="/reviewall">후기 검색</a></li>
                             </ul>
                         </li>
-                        <li><a href="/contact">문의처</a></li>
+                        <li><a href="/contact">제품 문의</a></li>
                     </ul>
                 </nav>
             </div>
