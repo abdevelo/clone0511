@@ -13,7 +13,9 @@
                   method : 'post',
                   data: {code : code} ,
                   success : function (result) {
-                      $('#code').val(result.toLocaleString() + '원');
+                      $('#code').val(result.toLocaleString() + '원').css('color', 'black');
+                      $('#disBtn').css('backgroundColor', '#F27DBB');
+                      $('#disBtn').text("확인완료");
                   }
               })
               console.log("===2" + code);
