@@ -66,6 +66,14 @@
                                         <td class="cart__close">${order.zipcode}</td>
                                         <td class="cart__close">${order.addr}</td>
                                         <td class="cart__close">${order.tel}</td>
+                                        <c:choose>
+                                            <c:when test="${mycoupon == 1000}">
+                                                <td class="cart__close"><fmt:formatNumber value="${order.price - mycoupon}" pattern="#,###,###원" /></td>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <td class="cart__close"><fmt:formatNumber value="${order.price}" pattern="#,###,###원" /></td>
+                                            </c:otherwise>
+                                        </c:choose>
                                         <td class="cart__close"><fmt:formatNumber value="${order.price}" pattern="#,###,###원" /></td>
                                         <td class="cart__close"><fmt:formatNumber value="${order.cnt}" pattern="#,###,###개" /></td>
                                         <td class="cart__close"><fmt:formatDate value="${order.rdate}" pattern="yyyy-MM-dd HH:mm:ss"/></td>

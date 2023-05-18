@@ -20,7 +20,6 @@ import java.net.URISyntaxException;
 @Log
 public class KakaoPay {
 
-    //평문 암호화
     @Value("${key}")
     String key;
 
