@@ -69,7 +69,6 @@ public class MemberController {
             if (!items.isEmpty()) {
                 session.setAttribute("mycart", 1);
             }
-            log.info("==============user==============" + member.toString());
             if (member != null && encoder.matches(password, member.getPassword())) {
                 nextPage = "loginok";
                 session.setMaxInactiveInterval(100000);// 한 session의 제한시간
@@ -80,6 +79,13 @@ public class MemberController {
             throw new RuntimeException("시스템 장애 잠시 후 다시 로그인 하세요.");
         }
         return "redirect:/shop";
+    }
+
+    @RequestMapping("/memberdetailUpdate")
+    public String memberdetailUpdate(Model model, Member member) throws Exception {
+        member.setPassword(encoder.encode(member.getPassword()));
+        memberService.modify(member);
+        return "redirect:/";
     }
 
 }

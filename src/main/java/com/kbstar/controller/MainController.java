@@ -137,4 +137,10 @@ public class MainController {
         model.addAttribute("center", "chatbot");
         return "index";
     }
+
+    @RequestMapping("/memberdetail")
+    public String memberdetail(Model model) {
+        model.addAttribute("center", "memberdetail");
+        return "index";
+    }
 }

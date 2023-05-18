@@ -27,7 +27,6 @@ public class ReserveController {
     @PostMapping("/add")
     public void addReserve(int memberId, int itemId, HttpSession session) {
         Reserve reserve = new Reserve(memberId, itemId);
-        log.info("===============reserve================" + reserve);
         try {
             reserveService.register(reserve);
             session.setAttribute("myreserve", 1);
@@ -40,7 +39,6 @@ public class ReserveController {
     @GetMapping("/{memberId}")
     public String myReserve(@PathVariable int memberId, Model model) throws Exception {
         List<Item> myReserve = reserveService.myReserve(memberId);
-        log.info("========myReserve===================" + myReserve);
         model.addAttribute("myReserve", myReserve);
         model.addAttribute("center", "shopping-reserve");
         return "index";
