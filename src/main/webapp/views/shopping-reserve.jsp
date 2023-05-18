@@ -84,7 +84,7 @@
     <section class="shopping-cart spad">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-12">
                     <div class="shopping__cart__table">
 
                         <c:set var="total" value="0"/>
@@ -92,15 +92,21 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Img</th>
-                                    <th>Name</th>
-                                    <th>Price</th>
+                                    <th>상품 아이디</th>
+                                    <th>이미지</th>
+                                    <th>상품명</th>
+                                    <th>상품가격</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
                                     <c:forEach var="obj" items="${myReserve}">
                                     <tr id="cart${obj.id}">
+                                        <td class="product__cart__item">
+                                            <div class="product__cart__item__text">
+                                                <h6>${obj.id}</h6>
+                                            </div>
+                                        </td>
                                         <td class="product__cart__item">
                                             <div class="product__cart__item__pic">
                                                 <img src="/uimg/${obj.img}" alt="" style="width: 90px; height: 90px">
@@ -114,13 +120,6 @@
                                         <td class="product__cart__item">
                                             <div class="product__cart__item__text">
                                                 <h5><fmt:formatNumber value="${obj.price}" pattern="#,###,###원" /></h5>
-                                            </div>
-                                        </td>
-                                        <td class="product__cart__item">
-                                            <div class="col-lg-10 col-md-10 col-sm-10">
-                                                <div class="continue__btn update__btn">
-                                                    <a href="#" style="width:100px;"><i class="fa fa-spinner"></i> Add to Cart</a>
-                                                </div>
                                             </div>
                                         </td>
                                      <tr>

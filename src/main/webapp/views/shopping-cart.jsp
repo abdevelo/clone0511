@@ -24,6 +24,11 @@
           })
       }
     }
+    let liveCoupon = {
+      init : function () {
+
+      }
+    }
     // 1. 카트에서 X버튼을 클릭하면 카트에서 해당 품목을 삭제한다.
     let cntChange = {
         init : function () {
@@ -80,6 +85,7 @@
         deleteItem.init();
         cntChange.init();
         getDiscount.init();
+        liveCoupon.init();
     })
 
     // 2. QUANTITY 를 조정하면 onchange 하고 있다가 desc/increase api post 호출하고 post 에서 받아서 해당 데이터를 조정해준다.
