@@ -86,7 +86,6 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="shopping__cart__table">
-
                         <c:set var="total" value="0"/>
                         <c:set var="qnt" value="0"/>
                         <table>
