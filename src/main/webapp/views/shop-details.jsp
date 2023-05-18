@@ -153,6 +153,69 @@
     </section>
     <!-- Shop Details Section End -->
 
+<%--review section begin--%>
+<!-- Shopping Cart Section Begin -->
+<section class="shopping-cart spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="shopping__cart__table">
+                    <c:set var="total" value="0"/>
+                    <c:set var="qnt" value="0"/>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>일련번호</th>
+                            <th>구매자</th>
+                            <th>제목</th>
+                            <th>내용</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach var="obj" items="${itemReview}">
+                        <tr id="cart${obj.id}">
+                            <td class="product__cart__item">
+                                <div class="product__cart__item__text">
+                                    <h6>${obj.id}</h6>
+                                </div>
+                            </td>
+                            <td class="product__cart__item">
+                                <div class="product__cart__item__text">
+                                    <h6>${obj.userId}</h6>
+                                </div>
+                            </td>
+                            <td class="product__cart__item">
+                                <div class="product__cart__item__text">
+                                    <h6>${obj.title}</h6>
+                                </div>
+                            </td>
+                            <td class="product__cart__item">
+                                <div class="product__cart__item__text">
+                                    <h6>${obj.review}</h6>
+                                </div>
+                            </td>
+
+                        <tr>
+                            </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <%--                <div class="col-lg-4">--%>
+            <%--                        <div class="col-lg-10 col-md-10 col-sm-10">--%>
+            <%--                            <div class="continue__btn update__btn">--%>
+            <%--                                <a href="#"><i class="fa fa-spinner"></i> ALL to Cart</a>--%>
+            <%--                            </div>--%>
+            <%--                        </div>--%>
+            <%--                </div>--%>
+        </div>
+    </div>
+</section>
+<!-- Shopping Cart Section End -->
+
+<%--review section end--%>
+
     <!-- Related Section Begin -->
     <section class="related spad">
         <div class="container">

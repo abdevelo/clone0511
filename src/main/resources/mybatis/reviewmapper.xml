@@ -49,4 +49,8 @@
         DELETE FROM member WHERE member_id=#{memberId}
     </delete>
 
+    <select id="getByItemId" parameterType="Integer" resultType="review">
+        SELECT * FROM review WHERE item_id=#{itemId}
+    </select>
+
 </mapper>

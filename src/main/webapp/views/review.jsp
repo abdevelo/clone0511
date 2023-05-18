@@ -10,7 +10,7 @@
                             <form action="/reviewimpl" method="post" name="review_form" id="review_form">
                                 <div class="row">
                                     <div class="col-lg-4 col-md-4">
-                                        <input type="text" placeholder="userId(Number..)" id="userId" name="userId">
+                                        <input type="text" placeholder="userId(Number..)" id="userId" name="userId" value="${loginmember.memberId}">
                                     </div>
                                     <div class="col-lg-4 col-md-4">
                                         <input type="text" placeholder="itemId(Number..)" id="itemId" name="itemId">

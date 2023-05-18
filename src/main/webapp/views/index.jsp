@@ -124,7 +124,14 @@
                                 <li><a href="/blog">블로그</a></li>
                             </ul>
                         </li>
-                        <li><a href="/reviewall">후기</a></li>
+                        <li><a href="#">후기</a>
+                            <ul class="dropdown">
+                                <c:if test="${loginmember != null}">
+                                    <li><a href="/review">후기 작성</a></li>
+                                </c:if>
+                                <li><a href="/reviewall">후기 검색</a></li>
+                            </ul>
+                        </li>
                         <li><a href="/contact">문의처</a></li>
                     </ul>
                 </nav>
