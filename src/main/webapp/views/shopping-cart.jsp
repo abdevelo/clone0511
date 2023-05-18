@@ -3,6 +3,23 @@
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <script>
+    let getDiscount = {
+      init : function () {
+          $('#disBtn').on('click', function () {
+              let code = $('#code').val();
+              console.log(code);
+              $.ajax({
+                  url : '/discount',
+                  method : 'post',
+                  data: {code : code} ,
+                  success : function (result) {
+                      $('#code').val(result.toLocaleString() + '원');
+                  }
+              })
+              console.log("===2" + code);
+          })
+      }
+    }
     // 1. 카트에서 X버튼을 클릭하면 카트에서 해당 품목을 삭제한다.
     let cntChange = {
         init : function () {
@@ -10,8 +27,10 @@
                 $.ajax({
                     method : 'get',
                     url : '/cart/decrease',
-                    success : function () {
-
+                    success : function (result) {
+                        <c:set var="discount" value="1000"/>
+                        console.log(${discount});
+                        $('#totalSub').text(addComma(${discount}));
                     }
                 })
             })
@@ -57,6 +76,7 @@
     $(function () {
         deleteItem.init();
         cntChange.init();
+        getDiscount.init();
     })
 
     // 2. QUANTITY 를 조정하면 onchange 하고 있다가 desc/increase api post 호출하고 post 에서 받아서 해당 데이터를 조정해준다.
@@ -89,12 +109,13 @@
 
                         <c:set var="total" value="0"/>
                         <c:set var="qnt" value="0"/>
+                        <c:set var="discount" value="0"/>
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Product</th>
-                                    <th>Quantity</th>
-                                    <th>Total</th>
+                                    <th>상품</th>
+                                    <th>수량</th>
+                                    <th>가격</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -122,8 +143,8 @@
                                     <tr>
                                     <c:set var="total" value="${total + (cart.price * cart.cnt)}"/>
                                     <c:set var="qnt" value="${qnt + cart.cnt}"/>
-                                    <input type="hidden" id="totalValue" value="${total + (cart.price * cart.cnt)}">
-                                    <input type="hidden" id="qntValue" value="${qnt + cart.cnt}">
+                                    <input type="hidden" id="totalValue" value="${total + (cart.price * cart.cnt) - discount}">
+                                    <input type="hidden" id="qntValue" value="${qnt + cart.cnt - discount}">
                                     </c:forEach>
                             </tbody>
                         </table>
@@ -143,10 +164,10 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="cart__discount">
-                        <h6>Discount codes</h6>
+                        <h6>내 쿠폰</h6>
                         <form id="disForm">
                             <input type="text" placeholder="Coupon code" name="code" id="code"/>
-                            <button type="button" id="disBtn">Apply</button>
+                            <button type="button" id="disBtn">확인하기</button>
                         </form>
                     </div>
                     <div class="cart__total">
@@ -156,7 +177,7 @@
                             <li>Subtotal <span id="totalSub"><fmt:formatNumber value="${total}" pattern="#,###,###원"/></span></li>
                             <li>Total <span id="totalSum"><fmt:formatNumber value="${total}" pattern="#,###,###원"/></span></li>
                         </ul>
-                        <a href="/order/${loginmember.id}" class="primary-btn" role="button">Proceed to checkout</a>
+                        <a href="/order/${loginmember.id}" class="primary-btn" role="button">주문하기</a>
                     </div>
                 </div>
             </div>

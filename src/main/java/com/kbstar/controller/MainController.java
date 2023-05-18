@@ -23,6 +23,9 @@ public class MainController {
         if ((session.getAttribute("mycart") == null)) {
             session.setAttribute("mycart", 0);
         }
+        if ((session.getAttribute("myreserve") == null)) {
+            session.setAttribute("myreserve", 0);
+        }
         return "index";
     }
 
