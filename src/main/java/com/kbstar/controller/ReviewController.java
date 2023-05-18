@@ -42,10 +42,6 @@ public class ReviewController {
     @RequestMapping("/reviewsearch")
     public String reviewsearch(Model model, ReviewSearch rs) throws Exception {
 
-
-        log.info("================================"+rs.getItemId());
-        log.info("================================"+rs.getRate());
-
         List<Review> list = null;
         try {
             list = reviewService.search(rs);

@@ -54,4 +54,8 @@ public class ReviewService implements ShopService<Integer, Review>{
     public List<ReviewRate> rateAll() throws Exception{
         return reviewMapper.rateAll();
     }
+
+    public List<Review> getByItemId(Integer k) throws  Exception{
+        return reviewMapper.getByItemId(k);
+    }
 }

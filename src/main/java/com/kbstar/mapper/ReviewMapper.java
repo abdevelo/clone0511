@@ -17,4 +17,6 @@ public interface ReviewMapper extends ShopMapper<Integer, Review> {
 
     List<ReviewRate> rate(Integer k);
     List<ReviewRate> rateAll();
+
+    List<Review> getByItemId(Integer k);
 }
