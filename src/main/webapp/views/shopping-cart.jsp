@@ -17,7 +17,7 @@
                       $('#code').val(result.toLocaleString() + '원').css('color', 'black');
                       $('#disBtn').css('backgroundColor', '#F27DBB');
                       $('#disBtn').text("확인완료");
-                      $('#totalSub').text(addComma(parseInt(sum.replace(",", "")) - result));
+                      $('#totalCou').text("-" + addComma(result));
                       $('#totalSum').text(addComma(parseInt(sum.replace(",", "")) - result));
                   }
               })
@@ -32,9 +32,7 @@
                     method : 'get',
                     url : '/cart/decrease',
                     success : function (result) {
-                        <c:set var="discount" value="1000"/>
-                        console.log(${discount});
-                        $('#totalSub').text(addComma(${discount}));
+
                     }
                 })
             })
@@ -68,6 +66,7 @@
                         $('#totalCnt').text(result.cnt);
                         $('#totalSub').text(addComma(result.price));
                         $('#totalSum').text(addComma(result.price));
+
                     })
                 });
             })
@@ -145,10 +144,10 @@
                                         <td class="cart__price"><fmt:formatNumber value="${cart.price * cart.cnt}" pattern="#,###,###원" /></td>
                                         <td class="cart__close"><a data-item-id="${cart.id}" role="button" id="delete_btn" class="btn"><i class="fa fa-close"></i></a></td>
                                     <tr>
-                                    <c:set var="total" value="${total + (cart.price * cart.cnt) - discount}"/>
+                                    <c:set var="total" value="${total + (cart.price * cart.cnt)}"/>
                                     <c:set var="qnt" value="${qnt + cart.cnt}"/>
-                                    <input type="hidden" id="totalValue" value="${total + (cart.price * cart.cnt) - discount}">
-                                    <input type="hidden" id="qntValue" value="${qnt + cart.cnt - discount}">
+                                    <input type="hidden" id="totalValue" value="${total + (cart.price * cart.cnt)}">
+                                    <input type="hidden" id="qntValue" value="${qnt + cart.cnt}">
                                     </c:forEach>
                             </tbody>
                         </table>
@@ -179,6 +178,7 @@
                         <ul>
                             <li>전체 상품 개수 <span id="totalCnt">${qnt}</span></li>
                             <li>Subtotal <span id="totalSub"><fmt:formatNumber value="${total}" pattern="#,###,###원"/></span></li>
+                            <li>쿠폰 <span id="totalCou">0원</span></li>
                             <li>Total <span id="totalSum"><fmt:formatNumber value="${total}" pattern="#,###,###원"/></span></li>
                         </ul>
                         <a href="/order/${loginmember.id}" class="primary-btn" role="button">주문하기</a>

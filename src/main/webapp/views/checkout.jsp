@@ -74,8 +74,10 @@
                                 </ul>
 
                                 <ul class="checkout__total__all">
-                                    <li>Subtotal <span><fmt:formatNumber value="${total}" pattern="#,###,###원"/></span></li>
-                                    <li>Total <span><fmt:formatNumber value="${total}" pattern="#,###,###원"/></span></li>
+                                    <c:if test="${mycoupon == 1000}">
+                                        <li>쿠폰 <span>-1,000원</span></li>
+                                    </c:if>
+                                    <li>Total <span><fmt:formatNumber value="${total - mycoupon}" pattern="#,###,###원"/></span></li>
                                 </ul>
                                 <input type="hidden" name="price" value="${total}">
                                 <input type="hidden" name="cnt" value="${qnt}">
