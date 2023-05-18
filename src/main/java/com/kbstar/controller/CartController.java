@@ -42,6 +42,12 @@ public class CartController {
     @GetMapping("/{memberId}")
     public String myCart(@PathVariable int memberId, Model model) {
         List<Item> myCart = cartService.myCart(memberId);
+        int sum = 0;
+        for (Item item : myCart) {
+            sum += item.getCnt() * item.getPrice();
+        }
+        System.out.println("sum = " + sum);
+        model.addAttribute("sum", sum);
         model.addAttribute("myCart", myCart);
         model.addAttribute("center", "shopping-cart");
         return "index";

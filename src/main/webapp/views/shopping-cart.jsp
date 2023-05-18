@@ -5,9 +5,10 @@
 <script>
     let getDiscount = {
       init : function () {
+          let sum = 0;
           $('#disBtn').on('click', function () {
               let code = $('#code').val();
-              console.log(code);
+              sum = $('#totalSub').text();
               $.ajax({
                   url : '/discount',
                   method : 'post',
@@ -16,9 +17,10 @@
                       $('#code').val(result.toLocaleString() + '원').css('color', 'black');
                       $('#disBtn').css('backgroundColor', '#F27DBB');
                       $('#disBtn').text("확인완료");
+                      $('#totalSub').text(addComma(parseInt(sum.replace(",", "")) - result));
+                      $('#totalSum').text(addComma(parseInt(sum.replace(",", "")) - result));
                   }
               })
-              console.log("===2" + code);
           })
       }
     }
@@ -143,7 +145,7 @@
                                         <td class="cart__price"><fmt:formatNumber value="${cart.price * cart.cnt}" pattern="#,###,###원" /></td>
                                         <td class="cart__close"><a data-item-id="${cart.id}" role="button" id="delete_btn" class="btn"><i class="fa fa-close"></i></a></td>
                                     <tr>
-                                    <c:set var="total" value="${total + (cart.price * cart.cnt)}"/>
+                                    <c:set var="total" value="${total + (cart.price * cart.cnt) - discount}"/>
                                     <c:set var="qnt" value="${qnt + cart.cnt}"/>
                                     <input type="hidden" id="totalValue" value="${total + (cart.price * cart.cnt) - discount}">
                                     <input type="hidden" id="qntValue" value="${qnt + cart.cnt - discount}">
